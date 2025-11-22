@@ -490,19 +490,64 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('animate-in');
                 }
             });
         }, observerOptions);
 
-        // アニメーション対象要素
-        document.querySelectorAll('.feature-card, .pricing-card, .portfolio-item, .service-card').forEach(el => {
+        // ポートフォリオアイテム - フェードイン＋スライドアップ
+        document.querySelectorAll('.portfolio-item').forEach((el, index) => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease';
+            el.style.transform = 'translateY(50px)';
+            el.style.transition = `all 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`;
             observer.observe(el);
         });
+
+        // 料金カード - スケール＋フェードイン
+        document.querySelectorAll('.pricing-card').forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'scale(0.9)';
+            el.style.transition = `all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) ${index * 0.15}s`;
+            observer.observe(el);
+        });
+
+        // アフターサービスカード - 左右からスライドイン
+        document.querySelectorAll('.service-card').forEach((el, index) => {
+            el.style.opacity = '0';
+            if (index % 2 === 0) {
+                el.style.transform = 'translateX(-100px)';
+            } else {
+                el.style.transform = 'translateX(100px)';
+            }
+            el.style.transition = `all 0.9s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.2}s`;
+            observer.observe(el);
+        });
+
+        // タイムラインアイテム - 順次フェードイン
+        document.querySelectorAll('.timeline-item').forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateX(-50px) rotate(-2deg)';
+            el.style.transition = `all 0.7s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.15}s`;
+            observer.observe(el);
+        });
+
+        // セクションタイトル - ズームイン
+        document.querySelectorAll('.section-title').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'scale(0.8)';
+            el.style.transition = 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            observer.observe(el);
+        });
+
+        // アニメーション適用時のスタイル
+        const style = document.createElement('style');
+        style.textContent = `
+            .animate-in {
+                opacity: 1 !important;
+                transform: translateY(0) translateX(0) scale(1) rotate(0deg) !important;
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
