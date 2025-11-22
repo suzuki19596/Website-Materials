@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロフェッショナルなWebサイト制作サービス | LP・HP制作</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ハンバーガーメニュー -->
+    <nav class="hamburger-nav">
+        <button class="hamburger-button" id="hamburgerButton">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-menu" id="navMenu">
+            <a href="#portfolio">テンプレ一覧</a>
+            <a href="#pricing">料金プラン</a>
+            <a href="#after-service">サポート</a>
+        </div>
+    </nav>
+
+    <!-- TOPに戻るボタン -->
+    <button class="scroll-to-top" id="scrollToTop">
+        ↑
+    </button>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="image/TOP.mp4?v=3" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>Webサイト制作サービス</h1>
+            <p>あなたのビジネスを加速させる、高品質なLP・HPを制作します</p>
+        </div>
+    </section>
+
+    <!-- セクション区切り -->
+    <div class="section-divider">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
+        </svg>
+    </div>
+
+    <!-- テンプレ一覧 -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">テンプレ一覧</h2>
+
+            <!-- LP制作例、テンプレ -->
+            <div class="portfolio-section">
+                <h3>LP制作例、テンプレ</h3>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="image/Life-Estate.jpg" alt="不動産業LP">
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>不動産業LP</h4>
+                            <p>高級感と信頼感を兼ね備えた落ち着いたデザイン。洗練された配色で物件の価値を引き立てます。</p>
+                            <a href="https://life-estate-lp.vercel.app/" target="_blank" class="portfolio-link">サイトを見る →</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="image/ProConsult.jpg" alt="コンサルティング企業系">
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>コンサルティング企業系</h4>
+                            <p>プロフェッショナルで知的な印象。実績やサービス内容を分かりやすく伝える構成です。</p>
+                            <a href="https://corporate-lp-01-consulting.vercel.app/" target="_blank" class="portfolio-link">サイトを見る →</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="image/CREATIVE.jpg" alt="クリエイティブエージェンシー系">
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>クリエイティブエージェンシー系</h4>
+                            <p>大胆なビジュアルと動きのあるアニメーション。独創的でモダンな雰囲気のデザインです。</p>
+                            <a href="https://corporate-lp-04-creative-agency.vercel.app/" target="_blank" class="portfolio-link">サイトを見る →</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="image/CORPORATE.jpg" alt="コーポレートサイト汎用系">
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>コーポレートサイト汎用系</h4>
+                            <p>どんな業種にも合うスタンダードなデザイン。必要な情報を整理された構成で見せます。</p>
+                            <a href="https://corporate-site-sample-eta.vercel.app/" target="_blank" class="portfolio-link">サイトを見る →</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="image/Modern-Minimalist.jpg" alt="汎用LP（モダン・ミニマリスト系）">
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>汎用LP（モダン・ミニマリスト系）</h4>
+                            <p>シンプルで洗練された美しさ。余白を活かした上品なミニマルデザインです。</p>
+                            <a href="https://sample1-modern-minimalist.vercel.app/" target="_blank" class="portfolio-link">サイトを見る →</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="image/colorful-creative.jpg" alt="汎用LP（カラフル・クリエイティブ系）">
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>汎用LP（カラフル・クリエイティブ系）</h4>
+                            <p>鮮やかな色使いで目を引くポップなデザイン。明るく活気のある印象を演出します。</p>
+                            <a href="https://sample3-creative-colorful.vercel.app/" target="_blank" class="portfolio-link">サイトを見る →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Webサイト一覧例 -->
+            <div class="portfolio-section">
+                <h3>Webサイト制作例、テンプレ</h3>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="image/sekou-koumuten.jpg" alt="株式会社施工">
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>株式会社施工【工務店】</h4>
+                            <p>確かな実績を感じる安心感のあるデザイン。施工写真が映える堅実な構成です。</p>
+                            <a href="https://sekou-koumuten.vercel.app/" target="_blank" class="portfolio-link">サイトを見る →</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="image/HOUSECRAFT.jpg" alt="ハウスクラフト">
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>ハウスクラフト【工務店】</h4>
+                            <p>洗練されたモダンなビジュアル。スタイリッシュで今どきの雰囲気のデザインです。</p>
+                            <a href="https://housecraft-website.vercel.app/index.html" target="_blank" class="portfolio-link">サイトを見る →</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <img src="image/simple-restaurant.jpg" alt="レストラン 味彩">
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>レストラン 味彩【飲食店】</h4>
+                            <p>料理の美味しさが伝わる温かみのあるデザイン。メニューや店舗情報を見やすく配置。</p>
+                            <a href="https://simple-restaurant-nine.vercel.app/index.html" target="_blank" class="portfolio-link">サイトを見る →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- セクション区切り -->
+    <div class="section-divider section-divider-flip">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
+        </svg>
+    </div>
+
+    <!-- 料金プラン -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">料金プラン</h2>
+            <p class="section-subtitle">明確でわかりやすい料金設定</p>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>LP制作</h3>
+                    <div class="price">¥60,000</div>
+                    <p class="price-note">税込価格</p>
+                    <ul class="features-list">
+                        <li>テンプレートベースのLP制作</li>
+                        <li>レスポンシブ対応</li>
+                        <li>納品前修正無制限</li>
+                        <li>簡易なアニメーション実装</li>
+                        <li>AI最適化</li>
+                        <li>2週間程度で納品</li>
+                    </ul>
+                    <div style="margin: 25px 0; overflow: hidden;">
+                        <svg width="100%" height="8" viewBox="0 0 300 8" preserveAspectRatio="none">
+                            <path d="M0,4 Q7.5,0 15,4 T30,4 T45,4 T60,4 T75,4 T90,4 T105,4 T120,4 T135,4 T150,4 T165,4 T180,4 T195,4 T210,4 T225,4 T240,4 T255,4 T270,4 T285,4 T300,4"
+                                  stroke="url(#gradient)"
+                                  stroke-width="2"
+                                  fill="none"/>
+                            <defs>
+                                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div style="text-align: left; padding: 0 20px;">
+                        <p style="margin: 10px 0; font-size: 0.95em;">豊富なアニメーション実装　￥3,000</p>
+                        <p style="margin: 10px 0; font-size: 0.95em;">オリジナル画像作成　1枚￥3,000から</p>
+                    </div>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>サブスクプラン</h3>
+                    <div class="price">月額 ¥20,000</div>
+                    <p class="price-note">税込価格</p>
+                    <ul class="features-list">
+                        <li>納品後の修正対応</li>
+                        <li>内容問わず修正可能</li>
+                        <li>通常は納品後の修正に費用が発生</li>
+                        <li>サブスク契約で修正し放題</li>
+                        <li>安心の継続サポート</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>ホームページ制作</h3>
+                    <div class="price">¥150,000</div>
+                    <p class="price-note">税込価格</p>
+                    <ul class="features-list">
+                        <li>複数ページ対応</li>
+                        <li>完全オリジナルデザイン</li>
+                        <li>レスポンシブ対応</li>
+                        <li>納品前修正無制限</li>
+                        <li>SEO最適化</li>
+                        <li>AI最適化</li>
+                        <li>お問い合わせフォーム</li>
+                        <li>2週間～3週間程度で納品</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- セクション区切り -->
+    <div class="section-divider">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+        </svg>
+    </div>
+
+    <!-- アフターサービス -->
+    <section id="after-service" class="after-service">
+        <div class="container">
+            <h2 class="section-title">納品後のサポート</h2>
+            <p class="section-subtitle">納品後も安心のサポート体制</p>
+
+            <div class="service-grid">
+                <div class="service-card">
+                    <h4>納品後の修正</h4>
+                    <div class="service-price">¥5,000〜</div>
+                    <p>納品後の軽微な修正にも柔軟に対応いたします。テキスト変更、画像差し替えなど、お気軽にご相談ください。</p>
+                </div>
+
+                <div class="service-card">
+                    <h4>大幅なリニューアル</h4>
+                    <div class="service-price">¥30,000〜</div>
+                    <p>デザインの大幅な変更や、新しいセクションの追加など、リニューアルにも対応いたします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- セクション区切り -->
+    <div class="section-divider section-divider-flip">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+        </svg>
+    </div>
+
+    <!-- 納期について -->
+    <section class="timeline">
+        <div class="container">
+            <h2 class="section-title">制作の流れ</h2>
+            <p class="section-subtitle">ご依頼から納品までの流れをご説明します</p>
+
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>STEP 1</h4>
+                        <p><strong>お問い合わせ・ヒアリング</strong><br>ご要望や目的をお伺いし、最適なプランをご提案いたします。</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>STEP 2</h4>
+                        <p><strong>デザイン制作</strong><br>ヒアリング内容を基に、デザインカンプを作成いたします。</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>STEP 3</h4>
+                        <p><strong>仮初稿</strong><br>デザインの仮初稿をご確認いただき、ご意見をお伺いします。</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>STEP 4</h4>
+                        <p><strong>修正対応（無制限）</strong><br>ご納得いただけるまで、何度でも修正対応いたします。</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>STEP 5</h4>
+                        <p><strong>納品</strong><br>約2週間程度で納品いたします。<br>※修正内容やデザインの複雑さにより前後する場合がございます。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- セクション区切り -->
+    <div class="section-divider">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
+        </svg>
+    </div>
+
+    <!-- サーバー・ドメイン情報 -->
+    <section class="server-info">
+        <div class="container">
+            <h2 class="section-title">サーバー・ドメインについて</h2>
+            <p class="section-subtitle">安心の管理体制</p>
+
+            <div class="info-box">
+                <h3>サーバー・ドメイン費用について</h3>
+                <p>サーバー・ドメインはこちらで契約・管理いたします。</p>
+                <ul>
+                    <li>1年ごとの更新制</li>
+                    <li>更新月にサーバー・ドメイン代の請求書をお送りいたします</li>
+                    <li>面倒な更新手続きは全てお任せください</li>
+                    <li>安定したサーバー環境で運用</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- セクション区切り -->
+    <div class="section-divider section-divider-flip">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+        </svg>
+    </div>
+
+    <!-- お問い合わせフォームセクション -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">お問い合わせ</h2>
+            <p class="section-subtitle">お気軽にご相談ください。2営業日以内にご返信いたします。</p>
+
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                <!-- Web3Forms Access Key -->
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                <input type="hidden" name="email" value="suzuki199534st@gmail.com">
+                <input type="hidden" name="subject" value="Webサイト制作サービスへのお問い合わせ">
+                <input type="hidden" name="from_name" value="Website Materials お問い合わせフォーム">
+                <input type="hidden" name="redirect" value="thank-you.html">
+
+                <div class="form-group">
+                    <label for="name">お名前 <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required placeholder="山田 太郎">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">メールアドレス <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required placeholder="example@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">電話番号</label>
+                    <input type="tel" id="phone" name="phone" placeholder="090-1234-5678">
+                </div>
+
+                <div class="form-group">
+                    <label for="service">ご希望のサービス</label>
+                    <select id="service" name="service">
+                        <option value="">選択してください</option>
+                        <option value="LP制作">LP制作</option>
+                        <option value="サブスクプラン">サブスクプラン</option>
+                        <option value="HP制作">ホームページ制作</option>
+                        <option value="その他">その他・ご相談</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">お問い合わせ内容 <span class="required">*</span></label>
+                    <textarea id="message" name="message" rows="6" required placeholder="ご要望やご質問をお書きください"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="submit-button">送信する</button>
+                </div>
+
+                <p class="form-note">※ 送信いただいた情報は、お問い合わせ対応のみに使用いたします。</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Web制作サービス. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ハンバーガーメニュー
+        const hamburgerButton = document.getElementById('hamburgerButton');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburgerButton.addEventListener('click', () => {
+            hamburgerButton.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // メニューリンクをクリックしたらメニューを閉じる
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburgerButton.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // TOPに戻るボタン
+        const scrollToTopButton = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopButton.classList.add('visible');
+            } else {
+                scrollToTopButton.classList.remove('visible');
+            }
+        });
+
+        scrollToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // スクロールアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // アニメーション対象要素
+        document.querySelectorAll('.feature-card, .pricing-card, .portfolio-item, .service-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

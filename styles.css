@@ -1,0 +1,1032 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans JP', 'Segoe UI', 'メイリオ', Meiryo, 'Hiragino Kaku Gothic ProN', sans-serif;
+    line-height: 1.8;
+    color: #333;
+    background-color: #fff;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+/* ハンバーガーメニュー */
+.hamburger-nav {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.hamburger-button {
+    background: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.hamburger-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.hamburger-button span {
+    width: 25px;
+    height: 3px;
+    background: #667eea;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger-button.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger-button.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-button.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
+.nav-menu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    padding: 10px 0;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.nav-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-menu a {
+    display: block;
+    padding: 15px 25px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    font-family: 'Noto Sans JP', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.nav-menu a:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+/* TOPに戻るボタン */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: rgba(102, 126, 234, 0.8);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    background: rgba(118, 75, 162, 0.9);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+/* ヒーローセクション */
+.hero {
+    padding: 120px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    object-fit: cover;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.95) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 4rem;
+    margin-bottom: 30px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.15));
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    font-weight: 500;
+    color: #333;
+    letter-spacing: 0.03em;
+    line-height: 1.8;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 18px 50px;
+    background: white;
+    color: #667eea;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    font-family: 'Noto Sans JP', sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* コンテナ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* セクション */
+section {
+    padding: 80px 20px;
+    position: relative;
+}
+
+/* セクション区切り */
+.section-divider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    margin: 0;
+    padding: 0;
+}
+
+.section-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 60px;
+    fill: #667eea;
+}
+
+.section-divider-flip {
+    transform: rotate(0deg);
+}
+
+/* 各セクション区切りの色を調整 */
+.hero + .section-divider svg {
+    fill: #f8f9fa;
+}
+
+.portfolio + .section-divider svg {
+    fill: #ffffff;
+}
+
+.pricing + .section-divider svg {
+    fill: #f8f9fa;
+}
+
+.after-service + .section-divider svg {
+    fill: #ffffff;
+}
+
+.timeline + .section-divider svg {
+    fill: #f8f9fa;
+}
+
+.server-info + .section-divider svg {
+    fill: #667eea;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    position: relative;
+    padding-bottom: 20px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 60px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* 特徴セクション */
+.features {
+    background: #f8f9fa;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.feature-card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.8;
+}
+
+/* 料金プラン */
+.pricing {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    position: relative;
+}
+
+.pricing::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 35px,
+            rgba(102, 126, 234, 0.02) 35px,
+            rgba(102, 126, 234, 0.02) 70px
+        );
+    pointer-events: none;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.pricing-card {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-card:hover {
+    border-color: #667eea;
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
+}
+
+.pricing-card.featured {
+    border-color: #667eea;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    transform: scale(1.05);
+}
+
+.pricing-card.featured:hover {
+    transform: scale(1.08) translateY(-10px);
+}
+
+.pricing-badge {
+    position: absolute;
+    top: 20px;
+    right: -30px;
+    background: #ffc107;
+    color: #333;
+    padding: 5px 40px;
+    transform: rotate(45deg);
+    font-weight: 700;
+    font-size: 0.8rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.pricing-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-weight: 900;
+    letter-spacing: 0.03em;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.pricing-card.featured h3 {
+    color: white;
+}
+
+.price {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 0.03em;
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 20px 0;
+    color: #667eea;
+}
+
+.pricing-card.featured .price {
+    color: white;
+}
+
+.price-note {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.pricing-card.featured .price-note {
+    color: rgba(255,255,255,0.9);
+}
+
+.features-list {
+    list-style: none;
+    margin: 30px 0;
+    text-align: left;
+}
+
+.features-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    padding-left: 30px;
+}
+
+.pricing-card.featured .features-list li {
+    border-bottom-color: rgba(255,255,255,0.2);
+}
+
+.features-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-weight: 700;
+}
+
+.pricing-card.featured .features-list li::before {
+    color: #ffc107;
+}
+
+/* アフターサービス */
+.after-service {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+}
+
+.after-service::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 30% 20%, rgba(102, 126, 234, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 70% 80%, rgba(118, 75, 162, 0.08) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.service-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 5px solid #667eea;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.service-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.service-price {
+    font-size: 1.8rem;
+    color: #667eea;
+    font-weight: 900;
+    letter-spacing: 0.03em;
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 15px 0;
+}
+
+/* ポートフォリオ */
+.portfolio {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+}
+
+.portfolio::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.portfolio-section {
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio-section h3 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+    padding-left: 20px;
+    border-left: 5px solid #667eea;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.portfolio-item {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.portfolio-image {
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    filter: blur(3px);
+}
+
+.portfolio-info {
+    padding: 25px;
+}
+
+.portfolio-info h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.portfolio-info p {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.portfolio-link {
+    display: inline-block;
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    font-family: 'Noto Sans JP', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.portfolio-link:hover {
+    color: #764ba2;
+    transform: translateX(5px);
+}
+
+/* タイムライン */
+.timeline {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%);
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="1" fill="rgba(102,126,234,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+    pointer-events: none;
+}
+
+.timeline-container {
+    max-width: 800px;
+    margin: 60px auto;
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.timeline-item {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.timeline-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    width: 45%;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-left: auto;
+    margin-right: 55%;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: 55%;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: white;
+    border: 4px solid #667eea;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-content h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #667eea;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* サーバー・ドメインセクション */
+.server-info {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    position: relative;
+}
+
+.server-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(45deg, rgba(102, 126, 234, 0.03) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(102, 126, 234, 0.03) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(102, 126, 234, 0.03) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(102, 126, 234, 0.03) 75%);
+    background-size: 40px 40px;
+    background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+    pointer-events: none;
+}
+
+.info-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 50px;
+    border-radius: 20px;
+    margin-top: 60px;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.info-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.info-box h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.info-box p {
+    font-size: 1.1rem;
+    line-height: 2;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+}
+
+.info-box ul {
+    margin-top: 20px;
+    padding-left: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.info-box li {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* CTAセクション */
+.cta-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.cta-section p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    opacity: 0.95;
+}
+
+/* お問い合わせフォーム */
+.contact-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    padding: 80px 20px;
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #333;
+    font-family: 'Noto Sans JP', sans-serif;
+    letter-spacing: 0.03em;
+}
+
+.required {
+    color: #e74c3c;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    font-family: 'Noto Sans JP', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.submit-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+}
+
+.form-note {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 20px;
+}
+
+/* フッター */
+footer {
+    background: #2d3748;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+footer p {
+    opacity: 0.8;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+        letter-spacing: 0.03em;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        letter-spacing: 0.02em;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-card.featured {
+        transform: scale(1);
+    }
+
+    .timeline-container::before {
+        left: 30px;
+    }
+
+    .timeline-content {
+        width: 100% !important;
+        margin-left: 60px !important;
+        margin-right: 0 !important;
+    }
+
+    .timeline-dot {
+        left: 30px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        padding: 30px 20px;
+    }
+
+    .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+
+    .hamburger-nav {
+        top: 15px;
+        right: 15px;
+    }
+
+    .hamburger-button {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* スムーススクロール */
+html {
+    scroll-behavior: smooth;
+}
