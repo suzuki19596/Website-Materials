@@ -57,7 +57,9 @@
             <!-- LP制作例、テンプレ -->
             <div class="portfolio-section">
                 <h3>LP制作例、テンプレ</h3>
-                <div class="portfolio-grid">
+                <div class="portfolio-carousel-wrapper">
+                    <button class="carousel-btn carousel-btn-prev" data-carousel="lp">‹</button>
+                    <div class="portfolio-grid portfolio-carousel" id="lp-carousel">
                     <div class="portfolio-item">
                         <div class="portfolio-image">
                             <img src="image/Life-Estate.jpg" alt="不動産業LP" loading="lazy">
@@ -200,13 +202,17 @@
                             <a href="https://reform-lp-animated.vercel.app/" target="_blank" class="portfolio-link">サイトを見る →</a>
                         </div>
                     </div>
+                    </div>
+                    <button class="carousel-btn carousel-btn-next" data-carousel="lp">›</button>
                 </div>
             </div>
 
             <!-- Webサイト一覧例 -->
             <div class="portfolio-section">
                 <h3>Webサイト制作例、テンプレ</h3>
-                <div class="portfolio-grid">
+                <div class="portfolio-carousel-wrapper">
+                    <button class="carousel-btn carousel-btn-prev" data-carousel="website">‹</button>
+                    <div class="portfolio-grid portfolio-carousel" id="website-carousel">
                     <div class="portfolio-item">
                         <div class="portfolio-image">
                             <img src="image/sekou-koumuten.jpg" alt="建築系LP(1)" loading="lazy">
@@ -272,6 +278,8 @@
                             <a href="https://restaurant-site-nu-kohl.vercel.app/" target="_blank" class="portfolio-link">サイトを見る →</a>
                         </div>
                     </div>
+                    </div>
+                    <button class="carousel-btn carousel-btn-next" data-carousel="website">›</button>
                 </div>
             </div>
         </div>
@@ -658,6 +666,44 @@
             }
         `;
         document.head.appendChild(style);
+
+        // カルーセル横スクロール機能
+        document.querySelectorAll('.carousel-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const carouselType = this.getAttribute('data-carousel');
+                const carousel = document.getElementById(`${carouselType}-carousel`);
+                const scrollAmount = 350; // スクロール量
+                const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+                if (this.classList.contains('carousel-btn-prev')) {
+                    // 左ボタン：最初にいる場合は最後に移動
+                    if (carousel.scrollLeft <= 0) {
+                        carousel.scrollTo({
+                            left: maxScroll,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        carousel.scrollBy({
+                            left: -scrollAmount,
+                            behavior: 'smooth'
+                        });
+                    }
+                } else {
+                    // 右ボタン：最後にいる場合は最初に移動
+                    if (carousel.scrollLeft >= maxScroll - 10) { // 10px の誤差を許容
+                        carousel.scrollTo({
+                            left: 0,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        carousel.scrollBy({
+                            left: scrollAmount,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
